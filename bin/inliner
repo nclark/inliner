@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+require 'inliner'
+
+url = ARGV[0]
+d = Inliner.new(url)
+puts d.inline
