@@ -1,11 +1,24 @@
-Gem::Specification.new do |s|
-  s.name        = 'inliner'
-  s.version     = '0.0.0'
-  s.date        = '2012-04-27'
-  s.summary     = "Inlines assets from a URL."
-  s.description = s.summary
-  s.authors     = ["Mark Sonnabaum"]
-  s.email       = 'mark@sonnabaum.com'
-  s.files       = `git ls-files`.split("\n")
-  s.executables = `git ls-files -- bin/*`.split("\n").map{|f| File.basename(f)}
+# -*- encoding: utf-8 -*-
+require File.expand_path('../lib/inliner/version', __FILE__)
+
+Gem::Specification.new do |gem|
+  gem.authors       = ["Mark Sonnabaum"]
+  gem.email         = ["mark@sonnabaum.com"]
+  gem.summary       = %q{Inlines assets from a URL.}
+  gem.description   = gem.summary
+  gem.homepage      = ""
+
+  gem.files         = `git ls-files`.split($\)
+  gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
+  gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
+  gem.name          = "inliner"
+  gem.require_paths = ["lib"]
+  gem.version       = Inliner::VERSION
+  gem.add_development_dependency('rdoc')
+  gem.add_development_dependency('aruba')
+  gem.add_development_dependency('rake','~> 0.9.2')
+  gem.add_development_dependency('nokogiri','~> 1.5.2')
+  gem.add_development_dependency('rack','~> 1.4.1')
+  gem.add_development_dependency('closure-compiler')
+  gem.add_dependency('methadone', '~>1.0.0.rc4')
 end

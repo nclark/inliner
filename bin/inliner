@@ -1,6 +1,24 @@
 #!/usr/bin/env ruby
+$:.unshift File.expand_path("../../lib", __FILE__)
+
+require 'optparse'
+require 'methadone'
 require 'inliner'
 
-url = ARGV[0]
-d = Inliner.new(url)
-puts d.inline
+class App
+  include Methadone::Main
+  include Methadone::CLILogging
+
+  main do |url|
+    d = Inliner::Inline.new(url)
+    puts d.inline
+  end
+
+  version Inliner::VERSION
+
+  arg :url
+
+  use_log_level_option
+
+  go!
+end
