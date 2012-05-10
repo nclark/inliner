@@ -17,8 +17,8 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency('rdoc')
   gem.add_development_dependency('aruba')
   gem.add_development_dependency('rake','~> 0.9.2')
-  gem.add_development_dependency('nokogiri','~> 1.5.2')
-  gem.add_development_dependency('rack','~> 1.4.1')
-  gem.add_development_dependency('em-http-request', '~> 1.0.2')
+  gem.add_dependency('nokogiri','~> 1.5.2')
+  gem.add_dependency('rack','~> 1.4.1')
+  gem.add_dependency('em-http-request', '~> 1.0.2')
   gem.add_dependency('methadone', '~>1.0.0.rc4')
 end
